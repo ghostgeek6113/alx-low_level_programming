@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /**
-* main - prints the lowercase alphabet except the letters 'e' and 'q', followed by a new line
+* main - prints the lowercase alphabet except the letters 'e' and 'q',
+* followed by a new line
 *
 * Return: Always 0 (Success)
 */
@@ -17,5 +18,5 @@ continue;
 putchar(l);
 }
 putchar('\n');
-return 0;
+return (0);
 }
