@@ -7,7 +7,7 @@
  * The numbers should range from 0 to 99, and should be printed with two
  * digits.
  * The combination of numbers must be separated by comma, followed by a space.
- * The combinations of numbers should be printed in ascending order.00 01 
+ * The combinations of numbers should be printed in ascending order.00 01
  * and 01 00 are considered as the same combination of the numbers 0 and 1.
  *
  * Return: Always 0 (Success)
