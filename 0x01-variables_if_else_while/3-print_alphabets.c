@@ -1,10 +1,11 @@
 #include <stdio.h>
 /**
 *main - Entry point
-*Description: Prints the alphabet in lowercase and uppercase, followed by a new line, using the putchar function twice
+*Description: Prints the alphabet in lowercase and uppercase,
+*followed by a new line, using the putchar function twice
 *Return: Always 0 (Success)
 */
-int main()
+int main(void)
 {
 char l;
 char u;
