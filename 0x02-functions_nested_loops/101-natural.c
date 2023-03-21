@@ -15,10 +15,10 @@ for (i = 1; i < 1024; i++)
 {
 if (i % 3 == 0 || i % 5 == 0)
 {
-sums+= i;
+sums += i;
 }
 }
-printf("%d",sums);
+printf("%d", sums);
 printf("\n");
 return (0);
 }
