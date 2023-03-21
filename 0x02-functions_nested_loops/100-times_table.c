@@ -12,8 +12,6 @@ if (n < 0 || n > 15)
 {
 return;
 }
-
-
 for (i = 0; i <= n; i++)
 {
 for (j = 0; j <= n; j++)
@@ -36,7 +34,6 @@ if (result < 10)
 {
 _putchar(' ');
 }
-
 if (result >= 100)
 {
 _putchar(result / 100 + '0');
