@@ -1,5 +1,4 @@
 /**
-*
 * add - adds two integers
 * @num1: first integer
 * @num2: second integer
