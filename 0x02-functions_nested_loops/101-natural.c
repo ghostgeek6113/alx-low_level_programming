@@ -19,5 +19,6 @@ sums+= i;
 }
 }
 printf("%d",sums);
+printf("\n");
 return (0);
 }
