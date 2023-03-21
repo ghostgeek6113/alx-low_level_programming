@@ -25,18 +25,32 @@ _putchar('0');
 else
 {
 int result = i * j;
+
+if (j == 0)
+{
+_putchar(result + '0');
+}
+else
+{
 _putchar(',');
 _putchar(' ');
-if (result < 10)
-{
-_putchar(' ');
-}
 if (result < 100)
 {
 _putchar(' ');
 }
-_putchar(result / 100 % 10 + '0');
+if (result < 10)
+{
+_putchar(' ');
+}
+
+if (result >= 100)
+{
+_putchar(result / 100 + '0');
+}
+if (result >= 10)
+{
 _putchar(result / 10 % 10 + '0');
+}
 _putchar(result % 10 + '0');
 }
 }
