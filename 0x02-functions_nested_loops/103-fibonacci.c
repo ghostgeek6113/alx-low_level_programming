@@ -8,13 +8,15 @@
 */
 
 
-int main()
+int main(void)
 {
 int sum = 0;
 int fib1 = 1, fib2 = 2;
 int temp;
-while (fib2 <= 4000000) {
-if (fib2 % 2 == 0) {
+while (fib2 <= 4000000)
+{
+if (fib2 % 2 == 0)
+{
 sum += fib2;
 }
 temp = fib2;

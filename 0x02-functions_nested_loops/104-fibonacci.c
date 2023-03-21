@@ -1,5 +1,5 @@
 #include <stdio.h>
-/** 
+/**
 * main - Finds and prints the first 98 Fibonacci numbers,
 * starting with 1 and 2,
 * separated by a comma and a space, followed by a newline character.
@@ -9,13 +9,13 @@
 
 int main(void)
 {
-int a = 1, b = 2, c;
+unsigned long long a = 1, b = 2, c;
 int i;
-printf("%d, %d, ", a, b);
+printf("%llu, %llu, ", a, b);
 for (i = 2; i < 98; i++)
 {
 c = a + b;
-printf("%d", c);
+printf("%llu", c);
 
 if (i != 97)
 {
