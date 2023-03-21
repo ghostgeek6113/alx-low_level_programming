@@ -10,16 +10,12 @@
 int main(void)
 {
 int sums = 0;
-int count = 0;
-
-while (count < 1024)
+for (int i = 1; i < 1024; i++)
 {
-if (count % 3 || count % 5)
+if (i % 3 == 0 || i % 5 == 0)
 {
-sums += count;
+sums+= i;
 }
-
-count++;
 }
 printf("%d",sums);
 return (0);
