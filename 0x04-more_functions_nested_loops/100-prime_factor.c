@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+
+#define NUM 612852475143
+
 /**
  * main - find and print largest prime factor of NUM
  *
@@ -7,26 +10,15 @@
  */
 int main(void)
 {
-	long n = 612852475143;
-	long max_factor = -1;
-	long i;
-	while (n % 2 == 0)
+	unsigned long int n = NUM;
+	unsigned long int div = 2;
+
+	while (div < n)
 	{
-		max_factor = 2;
-		n /= 2;
+		while (!(n % div))
+			n /= div;
+		++div;
 	}
-	for (i = 3; i <= sqrt(n); i += 2)
-	{
-		while (n % i == 0)
-		{
-			max_factor = i;
-			n /= i;
-		}
-	}
-	if (n > 2)
-	{
-		max_factor = n;
-	}
-	printf("%ld\n", max_factor);
+	printf("%lu\n", n);
 	return (0);
 }
