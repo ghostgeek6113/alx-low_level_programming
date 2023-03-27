@@ -1,28 +1,28 @@
 /**
- * _atoi - Converts a string to an integer.
+ * _atoi - converts a string to an integer
+ * @s: the string to convert
  *
- * @s: The string to be converted.
- *
- * Return: The converted integer.
+ * Return: the integer value of the string
  */
 int _atoi(char *s)
 {
-	int result = 0;
-	int sign = 1;
-	int i = 0;
+	int num = 0, neg = 0, i = 0;
 
 	while (s[i] != '\0')
 	{
 		if (s[i] == '-')
-			sign *= -1;
-
+			neg++;
 		if (s[i] >= '0' && s[i] <= '9')
-			result = result * 10 + (s[i] - '0');
-		else if (result > 0)
-			break;
-
+		{
+			if (num > INT_MAX / 10)
+				return (neg % 2 == 0 ? INT_MAX : INT_MIN);
+			num *= 10;
+			if (num > INT_MAX - (s[i] - '0'))
+				return (neg % 2 == 0 ? INT_MAX : INT_MIN);
+			num += s[i] - '0';
+		}
 		i++;
 	}
 
-	return (sign * result);
+	return (neg % 2 == 0 ? num : -num);
 }
