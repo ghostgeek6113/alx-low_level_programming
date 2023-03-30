@@ -6,23 +6,23 @@
  * @n: input
  * Return: Always 0 (Success)
  */
-char *leet(char *str)
+char *leet(char *n)
 {
-	int i, j;
-	char leet_table[5][2] = {{'a', 'A'}, {'e', 'E'}, {'o', 'O'}, {'t', 'T'}, {'l', 'L'}};
-	char leet_digits[] = {'4', '3', '0', '7', '1'};
+	int i, x;
+	int find[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
+	int replacer[] = {'4', '3', '0', '7', '1'};
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; n[i] != '\0'; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (x = 0; x <= 9; x++)
 		{
-			if (str[i] == leet_table[j][0] || str[i] == leet_table[j][1])
+			if (n[i] == find[x])
 			{
-				str[i] = leet_digits[j];
-				break;
+				n[i] = replacer[x / 2];
+				x = 9;
 			}
 		}
 	}
 
-	return (str);
+	return (n);
 }
