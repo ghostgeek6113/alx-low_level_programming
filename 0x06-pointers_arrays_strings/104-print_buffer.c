@@ -1,65 +1,78 @@
+#include "main.h"
 #include <stdio.h>
 
 /**
- * print_buffer - prints the content of a buffer
- *
- * @b: pointer to the buffer to print
- * @size: size of the buffer
- *
- * Return: void
+ * isPrintableASCII - determines if n is a printable ASCII char
+ * @n: integer
+ * Return: 1 if true, 0 if false
+ */
+int isPrintableASCII(int n)
+{
+	return (n >= 32 && n <= 126);
+}
+
+/**
+ * printHexes - print hex values for string b in formatted form
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printHexes(char *b, int start, int end)
+{
+	int i = 0;
+
+	while (i < 10)
+	{
+		if (i < end)
+			printf("%02x", *(b + start + i));
+		else
+			printf("  ");
+		if (i % 2)
+			printf(" ");
+		i++;
+	}
+}
+
+/**
+ * printASCII - print ascii values for string b,
+ * formatted to replace nonprintable chars with '.'
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printASCII(char *b, int start, int end)
+{
+	int ch, i = 0;
+
+	while (i < end)
+	{
+		ch = *(b + i + start);
+		if (!isPrintableASCII(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+	}
+}
+
+/**
+ * print_buffer - prints a buffer
+ * @b: string
+ * @size: size of buffer
  */
 void print_buffer(char *b, int size)
 {
-	int i, j;
-	unsigned char c;
+	int start, end;
 
-	if (size <= 0)
+	if (size > 0)
 	{
-		printf("\n");
-		return;
-	}
-
-	for (i = 0; i < size; i += 10)
-	{
-		printf("%08x: ", i);
-
-		for (j = 0; j < 10; j++)
+		for (start = 0; start < size; start += 10)
 		{
-			if (i + j < size)
-			{
-				c = *(b + i + j);
-				printf("%02x", c);
-			}
-			else
-			{
-				printf("  ");
-			}
-
-			if (j % 2 == 1)
-			{
-				printf(" ");
-			}
+			end = (size - start < 10) ? size - start : 10;
+			printf("%08x: ", start);
+			printHexes(b, start, end);
+			printASCII(b, start, end);
+			printf("\n");
 		}
-
-		for (j = 0; j < 10; j++)
-		{
-			if (i + j >= size)
-			{
-				break;
-			}
-
-			c = *(b + i + j);
-
-			if (c >= 32 && c <= 126)
-			{
-				printf("%c", c);
-			}
-			else
-			{
-				printf(".");
-			}
-		}
-
+	} else
 		printf("\n");
-	}
 }
