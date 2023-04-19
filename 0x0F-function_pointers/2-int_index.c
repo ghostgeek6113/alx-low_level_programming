@@ -1,14 +1,14 @@
 #include "function_pointers.h"
 
 /**
- * int_index -  returns the index of the first element 
+ * int_index -  returns the index of the first element
  * for which the cmp function does not return 0 else return -1
  * @array: array
  * @size: array size
  * @cmp: pointer to the function to be used to compare values
  * Return: index or -1
- **/
-int int_index(int *arry, int size, int (*cmp)(int))
+ */
+int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
 	
