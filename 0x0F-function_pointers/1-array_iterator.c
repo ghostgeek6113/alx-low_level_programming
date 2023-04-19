@@ -7,7 +7,7 @@
  * @size: size of array
  * @action: pointer to print in regular format or hexadecimal
  * Return: void
- **/
+ */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	unsigned int i;
