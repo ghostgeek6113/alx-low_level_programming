@@ -1,6 +1,6 @@
 section .data
-hello:		db "Hello, Holberton",10,0
-format:		db "%s",0
+message:		db "Hello, Holberton",10,0
+first_printf_argument:		db "%s",0
 
 	    section .text
 	    global main
@@ -10,8 +10,8 @@ main:
 	    push rbp
 	    mov rbp, rsp
 
-	    mov rsi, hello
-	    mov rdi, format
+	    mov rsi, message
+	    mov rdi, first_printf_argument
 	    call printf
 
 	    pop rbp
