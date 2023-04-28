@@ -5,7 +5,7 @@
 /**
  * free_list - Function to free a linked list.
  * @head: struct representing the linked list to be freed
- * Return: 
+ * Return:
  */
 
 void free_list(list_t *head)
