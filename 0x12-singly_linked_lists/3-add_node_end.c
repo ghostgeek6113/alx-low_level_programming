@@ -6,7 +6,8 @@
  * add_node_end - Function to adds a new node at the end of a linked list.
  * @head: head of the list
  * @str: element to be added
- * Return: Address of the new element added to the list ot Null if failed to add
+ * Return: Address of the new element added to the list or
+ * Null if failed to add
  */
 
 list_t *add_node_end(list_t **head, const char *str)
