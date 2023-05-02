@@ -8,22 +8,21 @@
  * @head: Head of the linked list
  * Return: Number of nodes
  */
+/**
+ * To be able to count the numbe rof nodes and going through the
+ * cycle only once, we use the two pointer method:
+ * one fast pointer that keeps track of all the nodes
+ * and one slow pointer that is used to detect loops in the linked
+ * list and is the one that is supposed to stop the traversal
+ */
 
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes = 0;
+	size_t nodes = 0, loops = 0;
 	const listint_t *fast_pointer, *slow_pointer;
 
 	if (head == NULL)
 		return (0);
-
-	/**
-	 * To be able to count the numbe rof nodes and going through the
-	 * cycle only once, we use the two pointer method:
-	 * one fast pointer that keeps track of all the nodes
-	 * and one slow pointer that is used to detect loops in the linked
-	 * list and is the one that is supposed to stop the traversal
-	 */
 
 	fast_pointer = slow_pointer = head;
 	while (fast_pointer != NULL && fast_pointer->next != NULL)
@@ -37,6 +36,7 @@ size_t print_listint_safe(const listint_t *head)
 				slow_pointer = slow_pointer->next;
 			} while (slow_pointer != fast_pointer);
 			do {
+				loops++;
 				fast_pointer = fast_pointer->next;
 			} while (slow_pointer != fast_pointer);
 			break;
@@ -44,7 +44,7 @@ size_t print_listint_safe(const listint_t *head)
 		nodes++;
 	}
 	slow_pointer = head;
-	fast_pointer = count > loop_size ? NULL : fast_pointer;
+	fast_pointer = nodes > loops ? NULL : fast_pointer;
 	while (slow_pointer != fast_pointer && fast_pointer != NULL)
 	{
 		printf("[%p] %d\n", (void *)slow_pointer, slow_pointer->n);
@@ -52,9 +52,7 @@ size_t print_listint_safe(const listint_t *head)
 		fast_pointer = fast_pointer->next;
 		nodes++;
 	}
-
 	if (fast_pointer != NULL)
 		printf("[%p] %d\n", (void *)slow_pointer, slow_pointer->n);
-
 	return (nodes);
 }
