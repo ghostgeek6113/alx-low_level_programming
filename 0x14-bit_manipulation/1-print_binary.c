@@ -13,14 +13,15 @@ void print_binary(unsigned long int n)
 	for (i = 63; i >= 0; i++)
 	{
 		current_integer = n >> i;
+		
 		if (current_integer & 1)
 		{
 			_putchar('1');
 			bit_count++;
 		}
-		else if (count)
+		else if (bit_count)
 			_putchar('0');
 	}
 	if (!bit_count)
-		_putchar('0);
+		_putchar('0');
 }

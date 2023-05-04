@@ -5,6 +5,7 @@
  * a number at a given index to 1
  * @n: Number to search from and to change
  * @index:  Index of the bit we want to set to 1 starting from 0
+ * Return: 1 if it worked, or -1 if an error occurred
  */
 
 int set_bit(unsigned long int *n, unsigned int index)
