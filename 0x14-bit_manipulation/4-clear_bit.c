@@ -13,11 +13,11 @@ int clear_bit(unsigned long int *n, unsigned int index)
 		return (-1);
 
 	/**
-         * Do a bitwise AND between the number pointed to by n and a mask
-         * that has a 0 at the index position and 1 elsewhere.
-         * The mask is obtained by shifting the value 1 to the left
-         * by the index number of positions.
-         */
+	 * Do a bitwise AND between the number pointed to by n and a mask
+	 * that has a 0 at the index position and 1 elsewhere.
+	 * The mask is obtained by shifting the value 1 to the left
+	 * by the index number of positions.
+	 */
 
 	*n &= ~(1UL << index);
 	return (1);
