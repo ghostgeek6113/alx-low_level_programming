@@ -26,7 +26,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	if (file_descripto == -1)
+	if (file_descriptor == -1)
 		return (-1);
 
 	if (text_content != NULL)
@@ -38,7 +38,6 @@ int create_file(const char *filename, char *text_content)
 	byte_writen = write(file_descriptor, text_content, text_content_len);
 
 	if (byte_writen == -1)
-		close(file_descritor);
 		return (-1);
 
 	/* Remember to close the file once manipulation is over */
