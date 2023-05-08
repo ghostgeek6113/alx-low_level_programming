@@ -10,7 +10,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	int file_descriptor, text_content_len, byte_writen;
-
+	umask(0);
 	/**
 	* Create the file using open system call, pass in the filename and
 	* flags:
@@ -38,8 +38,10 @@ int create_file(const char *filename, char *text_content)
 	byte_writen = write(file_descriptor, text_content, text_content_len);
 
 	if (byte_writen == -1)
+	{
+		close(file_descriptor);
 		return (-1);
-
+	}
 	/* Remember to close the file once manipulation is over */
 	close(file_descriptor);
 	return (1);
