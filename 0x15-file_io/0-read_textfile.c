@@ -14,7 +14,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	ssize_t file_descriptor, byte_read, byte_writen;
-	char data;
+	char *data;
 
 	file_descriptor = open(filename, O_RDONLY);
 
